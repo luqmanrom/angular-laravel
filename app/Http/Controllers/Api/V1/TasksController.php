@@ -141,6 +141,7 @@ class TasksController extends Controller
         $this->repository->delete($tasks);
     }
 
+    // Dependency injection as the parameters
     public function __construct(TasksRepository $repository, Request $request)
     {
         parent::__construct();

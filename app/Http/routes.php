@@ -14,13 +14,13 @@
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
-        return view('docs.api');
+        return view('index');
     });
 
 });
 
 Route::group([
-    'middleware' => ['api'],
+    'middleware' => ['cors', 'api'],
     'namespace' => 'Api\V1',
     'prefix' => '/api/v1',
 ], function ($route) {
