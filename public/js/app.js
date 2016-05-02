@@ -1,7 +1,7 @@
 angular.module('sampleApp', ['HomeCtrl','LoginCtrl', 'commentService', 'ngRoute', 'CookiesService']);
 
 angular.module('sampleApp')    
-    .factory('AuthInterceptor', function(Cookies) {
+    .factory('AuthInterceptor', function(Cookies,$q) {
         return {
             request: function(config) {
                 var token = Cookies.get('token');
@@ -20,7 +20,10 @@ angular.module('sampleApp')
             },
 
             responseError: function(res) {
-                return res;
+                
+                // To fix error handler will not be called when the error is 400
+                // https://github.com/angular/angular.js/issues/2609
+                return $q.reject(res);
             }
         }        
     })

@@ -8,21 +8,21 @@ angular.module('LoginCtrl', ['AuthenticationService'])
 			var loginPromise = Auth.login($scope.credentials);
 
 			loginPromise
-			.success(function(data) {
-				console.log(data);
+				.then(function(data) {
+					console.log('Success');
+					console.log(data);
+					if (data.token) {
+						Cookies.set('token', data.token);
+					}
 
-				if (data.token) {
-					Cookies.set('token', data.token);
-				}
+					// $location.path('/home')
 
-				// $location.path('/home')
+					return data;
+				}, function(err) {
+					console.log('Error');
+					console.log(err);
+				})
 
-				return data;
-			})
-			.error(function(err) {
-				console.log(err)
-				return err;
-			});
 		};
 
 		$scope.tasks = {};
