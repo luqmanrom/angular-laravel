@@ -1,6 +1,6 @@
 angular.module('LoginCtrl', ['AuthenticationService'])
 
-	.controller('LoginController', function($scope, $http, Auth, $location) {
+	.controller('LoginController', function($scope, $http, Auth, Cookies, $location) {
 
 		$scope.credentials = {};
 
@@ -9,8 +9,13 @@ angular.module('LoginCtrl', ['AuthenticationService'])
 
 			loginPromise
 			.success(function(data) {
+				console.log(data);
 
-				$location.path('/home')
+				if (data.token) {
+					Cookies.set('token', data.token);
+				}
+
+				// $location.path('/home')
 
 				return data;
 			})

@@ -8,8 +8,8 @@ angular.module('CookiesService', [])
 		    }
 		    else var expires = "";
 
-		    var fixedName = '<%= Request["formName"] %>';
-		    name = fixedName + name;
+		    // var fixedName = '<%= Request["formName"] %>';
+		    // name = fixedName + name;
 
 		    document.cookie = name + "=" + value + expires + "; path=/";
 		}
@@ -31,9 +31,9 @@ angular.module('CookiesService', [])
 
 
 		return {
-			create : createCookie,
-			read   : readCookie,
-			erase  : eraseCookie
+			set     : createCookie,
+			get     : readCookie,
+			delete  : eraseCookie
 		}
 
 	});

@@ -4,9 +4,10 @@ angular.module('sampleApp')
     .factory('AuthInterceptor', function(Cookies) {
         return {
             request: function(config) {
-                console.log("Intercepted");
-                var token = Cookies.read('token');
-                config.headers['Authorization'] = 'Bearer ' + token;
+                var token = Cookies.get('token');
+                if (token) {
+                    config.headers['Authorization'] = 'Bearer ' + token;
+                }
                 return config;
             },
 

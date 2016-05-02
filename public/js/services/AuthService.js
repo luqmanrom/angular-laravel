@@ -18,7 +18,6 @@ angular.module('AuthenticationService', [])
 		return {
 			login : loginFunc,
 			register : function() {},
-			saveCookies : $.cookie
 
 		}
 
