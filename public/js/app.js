@@ -1,4 +1,4 @@
-angular.module('sampleApp', ['HomeCtrl','LoginCtrl', 'commentService', 'ngRoute', 'CookiesService']);
+angular.module('sampleApp', ['HomeCtrl','LoginCtrl', 'TaskService', 'ngRoute', 'CookiesService']);
 
 angular.module('sampleApp')    
     .factory('AuthInterceptor', function(Cookies,$q) {
@@ -38,7 +38,15 @@ angular.module('sampleApp')
         $routeProvider
         .when('/home', {
             templateUrl: 'views/home.html',
-            controller: 'HomeController'
+            controller: 'HomeController',
+            resolve  : {
+                check : function(Cookies,$location) {
+
+                    if (!Cookies.get('token')) {
+                        $location.path('/login')
+                    }
+                }
+            }
         })
         .when('/login', {
             templateUrl: 'views/login.html',

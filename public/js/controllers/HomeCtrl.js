@@ -1,32 +1,32 @@
 angular.module('HomeCtrl', [])
 
-	.controller('HomeController', function($scope, $http, Comment) {
+	.controller('HomeController', function($scope, $http, Task) {
 		// object to hold all the data for the new comment form
-		$scope.commentData = {};
+		$scope.taskData = {};
 
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
 		
 		// get all the comments first and bind it to the $scope.comments object
-		Comment.get()
+		Task.get()
 			.success(function(data) {
-				$scope.comments = data;
+				$scope.tasks = data.data;
 				$scope.loading = false;
 			});
 
 
 		// function to handle submitting the form
-		$scope.submitComment = function() {
+		$scope.submitTask = function() {
 			$scope.loading = true;
 
 			// save the comment. pass in comment data from the form
-			Comment.save($scope.commentData)
+			Task.save($scope.taskData)
 				.success(function(data) {
-					$scope.commentData = {};
+					$scope.taskData = {};
 					// if successful, we'll need to refresh the comment list
-					Comment.get()
+					Task.get()
 						.success(function(getData) {
-							$scope.comments = getData;
+							$scope.tasks = getData.data;
 							$scope.loading = false;
 						});
 
@@ -37,16 +37,16 @@ angular.module('HomeCtrl', [])
 		};
 
 		// function to handle deleting a comment
-		$scope.deleteComment = function(id) {
+		$scope.deleteTask = function(id) {
 			$scope.loading = true; 
 
-			Comment.destroy(id)
+			Task.destroy(id)
 				.success(function(data) {
 
 					// if successful, we'll need to refresh the comment list
-					Comment.get()
+					Task.get()
 						.success(function(getData) {
-							$scope.comments = getData;
+							$scope.tasks = getData.data;
 							$scope.loading = false;
 						});
 

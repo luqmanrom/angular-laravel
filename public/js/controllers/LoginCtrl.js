@@ -11,12 +11,11 @@ angular.module('LoginCtrl', ['AuthenticationService'])
 				.then(function(data) {
 					console.log('Success');
 					console.log(data);
-					if (data.token) {
-						Cookies.set('token', data.token);
+					if (data.data.token) {
+						Cookies.set('token', data.data.token);
+						$location.path('/home')
+
 					}
-
-					// $location.path('/home')
-
 					return data;
 				}, function(err) {
 					console.log('Error');
