@@ -1,5 +1,24 @@
-# Sample Laravel 5.2 JSON API
+# Sample Laravel 5.2 JSON API with Angular
 
+This is my labor day project which is actually forked from this [repo](https://github.com/zulfajuniadi/sampleapi) which provides most part of the API in the backend.
+
+The front-end implementation does not use any Blade template and it is fully using AngularJS with RESTful call to the backend using the API. It is intentionally to be designed in that way  to demonstrate the separation of the front-end and the back-end. 
+
+It supports basic CRUD operation:
+
+1. List the tasks
+2. Add a new task
+3. Delete a task
+
+TODO:
+
+1. Change the nav after logged in
+2. Update a task
+3. Sign up features
+4. Role-based access control
+
+
+## API
 
 [Demo](https://sampleapi.demo.rocks)
 
