@@ -10,12 +10,18 @@
 			<input type="password" class="form-control input-lg" name="password" ng-model="credentials.password" placeholder="Password">
 		</div>
 		
-		<pre>
-			{{ credentials }}
-		</pre>
+
 		<div class="form-group text-right">	
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 	</form>
 
+	<button ng-click="getTasks()"> Get Data</button>
+
+</div>
+
+<div class="col-lg-12">
+	<pre>
+		{{ tasks }}
+	</pre>	
 </div>

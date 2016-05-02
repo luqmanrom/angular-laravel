@@ -1,6 +1,6 @@
-angular.module('LoginCtrl', [])
+angular.module('LoginCtrl', ['AuthenticationService'])
 
-	.controller('LoginController', function($scope, $http, Auth) {
+	.controller('LoginController', function($scope, $http, Auth, $location) {
 
 		$scope.credentials = {};
 
@@ -9,15 +9,32 @@ angular.module('LoginCtrl', [])
 
 			loginPromise
 			.success(function(data) {
-				document.cookie = "token=" + data.token + "; expires=Thu, 18 Dec 2017 12:00:00 UTC; path=/";
 
-				console.log(data);
+				$location.path('/home')
+
 				return data;
 			})
 			.error(function(err) {
 				console.log(err)
 				return err;
 			});
+		};
+
+		$scope.tasks = {};
+
+		$scope.getTasks = function() {
+			$http({
+			  method: 'GET',
+			  url: '/api/v1/tasks'
+			}).then(function successCallback(response) {
+			    // this callback will be called asynchronously
+			    // when the response is available
+			    $scope.tasks = response.data.data
+			  }, function errorCallback(response) {
+			  		console.log(response);
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+			  });
 		}
 
 

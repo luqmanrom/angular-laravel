@@ -17,17 +17,17 @@
 	<script src="lib/js/jquery.min.js"></script>
 	<script src="lib/js/angular.min.js"></script>
 	<script src="lib/js/angular-route.min.js"></script>
-	<script src="lib/js/ngCookies.js"></script>
 
 
 	<script src="js/controllers/HomeCtrl.js"></script> 
 	<script src="js/controllers/LoginCtrl.js"></script> 		
 	<script src="js/services/commentService.js"></script> 
 	<script src="js/services/AuthService.js"></script> 
+	<script src="js/services/CookiesService.js"></script> 	
 	<script src="js/app.js"></script> 
 
 </head>
-<body class="container" ng-app="sampleApp">
+<body class="container" ng-app="sampleApp" >
 	<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -41,7 +41,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
 
           </ul>
           <ul class="nav navbar-nav navbar-right">

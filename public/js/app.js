@@ -1,32 +1,33 @@
+angular.module('sampleApp', ['HomeCtrl','LoginCtrl', 'commentService', 'ngRoute', 'CookiesService']);
 
-function testInterceptor() {
-    return {
-        request: function(config) {
-            // console.log("Intercepted");
-            return config;
-        },
+angular.module('sampleApp')    
+    .factory('AuthInterceptor', function(Cookies) {
+        return {
+            request: function(config) {
+                console.log("Intercepted");
+                var token = Cookies.read('token');
+                config.headers['Authorization'] = 'Bearer ' + token;
+                return config;
+            },
 
-        requestError: function(config) {
-            return config;
-        },
+            requestError: function(config) {
+                return config;
+            },
 
-        response: function(res) {
-            return res;
-        },
+            response: function(res) {
+                return res;
+            },
 
-        responseError: function(res) {
-            return res;
-        }
-    }
-}
+            responseError: function(res) {
+                return res;
+            }
+        }        
+    })
 
-var sampleApp = angular.module('sampleApp', ['HomeCtrl','LoginCtrl', 'commentService',,'AuthenticationService', 'ngRoute']);
-
-sampleApp
-    .factory('testInterceptor', testInterceptor)
-    
     .config(function($httpProvider) {
-        $httpProvider.interceptors.push('testInterceptor');
+
+        // $cookies.put('dsada', 'dasdas');
+        $httpProvider.interceptors.push('AuthInterceptor');
     })
 
     .config(function($routeProvider) {
