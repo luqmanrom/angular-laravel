@@ -20,7 +20,8 @@
 
 
 	<script src="js/controllers/HomeCtrl.js"></script> 
-	<script src="js/controllers/LoginCtrl.js"></script> 		
+	<script src="js/controllers/LoginCtrl.js"></script>
+	<script src="js/controllers/NavCtrl.js"></script>
 	<script src="js/services/TaskService.js"></script> 
 	<script src="js/services/AuthService.js"></script> 
 	<script src="js/services/CookiesService.js"></script> 	
@@ -28,7 +29,7 @@
 
 </head>
 <body class="container" ng-app="sampleApp" >
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -46,7 +47,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/#/login">Login</a></li>
-            <li><a href="/#/register">Register</a></li>
+			  <li><a href ng-click="logout()">Logout</a></li>
+			  <li><a href="/#/register">Register</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

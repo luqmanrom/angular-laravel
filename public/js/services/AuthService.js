@@ -1,6 +1,6 @@
 angular.module('AuthenticationService', [])
 
-	.factory('Auth', function($http) {
+	.factory('Auth', function($http,Cookies) {
 
 		var loginFunc = function(credentials) {
 			return $http({
@@ -13,11 +13,18 @@ angular.module('AuthenticationService', [])
 				}
 			});
 
+		};
+
+		var logoutFunc = function() {
+			console.log('Logout');
+			Cookies.delete('token');
+			return true;
 		}
 
 		return {
 			login : loginFunc,
 			register : function() {},
+			logout   : logoutFunc
 
 		}
 

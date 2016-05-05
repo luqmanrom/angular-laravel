@@ -1,5 +1,9 @@
 <div class="col-md-8 col-md-offset-2">
 
+
+	<div class="col-md-12" ng-show="credentialError">
+		<p><span class="fa fa-warning"></span> Your username and password combination is not correct. Please try again</p>
+	</div>
 	<form ng-submit="submitLogin()">
 
 		<div class="form-group">
@@ -15,6 +19,9 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 	</form>
+
+	<p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
+
 
 
 </div>

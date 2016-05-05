@@ -3,12 +3,15 @@ angular.module('LoginCtrl', ['AuthenticationService'])
 	.controller('LoginController', function($scope, $http, Auth, Cookies, $location) {
 
 		$scope.credentials = {};
+		$scope.loading = false;
 
 		$scope.submitLogin = function() {
+			$scope.loading = true;
 			var loginPromise = Auth.login($scope.credentials);
 
 			loginPromise
 				.then(function(data) {
+
 					console.log('Success');
 					console.log(data);
 					if (data.data.token) {
@@ -20,6 +23,8 @@ angular.module('LoginCtrl', ['AuthenticationService'])
 				}, function(err) {
 					console.log('Error');
 					console.log(err);
+					$scope.loading = false;
+					$scope.credentialError = true;
 				})
 
 		};

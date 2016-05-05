@@ -1,4 +1,4 @@
-angular.module('sampleApp', ['HomeCtrl','LoginCtrl', 'TaskService', 'ngRoute', 'CookiesService']);
+angular.module('sampleApp', ['HomeCtrl','LoginCtrl','NavCtrl', 'TaskService', 'ngRoute', 'CookiesService']);
 
 angular.module('sampleApp')    
     .factory('AuthInterceptor', function(Cookies,$q) {

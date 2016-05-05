@@ -19,3 +19,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$user_ids = \DB::table('users')->select('id')->lists('id');
+
+$factory->define(\App\Task::class, function(Faker\Generator $faker) use($user_ids) {
+    return [
+        'user_id' => $faker->randomElement($user_ids),
+        'title' => $faker->text,
+        'is_done' => $faker->randomElement([0,1]),
+
+    ];
+});

@@ -4,7 +4,11 @@ angular.module('TaskService', [])
 
 		return {
 			get : function() {
-				return $http.get('api/v1/tasks');
+				return $http({
+					method: 'GET',
+					url : 'api/v1/tasks',
+					cache : true
+				})
 			},
 			show : function(id) {
 				return $http.get('/api/v1/tasks/' + id);
