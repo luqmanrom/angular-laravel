@@ -1,6 +1,6 @@
 angular.module('HomeCtrl', [])
 
-	.controller('HomeController', function($scope, $http, Task) {
+	.controller('HomeController', ['$scope', '$http', 'Task', function($scope, $http, Task) {
 		// object to hold all the data for the new comment form
 		$scope.taskData = {};
 
@@ -53,4 +53,4 @@ angular.module('HomeCtrl', [])
 				});
 		};
 
-	});
+	}]);

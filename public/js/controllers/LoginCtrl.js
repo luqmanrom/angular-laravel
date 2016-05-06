@@ -1,6 +1,6 @@
 angular.module('LoginCtrl', ['AuthenticationService'])
 
-	.controller('LoginController', function($scope, $http, Auth, Cookies, $location) {
+	.controller('LoginController', ['$scope', '$http', 'Auth', 'Cookies', '$location', function($scope, $http, Auth, Cookies, $location) {
 
 		$scope.credentials = {};
 		$scope.loading = false;
@@ -47,4 +47,4 @@ angular.module('LoginCtrl', ['AuthenticationService'])
 		}
 
 
-	});
+	}]);
