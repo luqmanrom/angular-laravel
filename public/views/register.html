@@ -1,0 +1,27 @@
+<div class="col-md-8 col-md-offset-2">
+
+	<form ng-submit="submitRegister()">
+
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" name="username" ng-model="credentials.name" placeholder="Name">
+		</div>
+
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" name="email" ng-model="credentials.email" placeholder="Email">
+		</div>
+
+		<div class="form-group">
+			<input type="password" class="form-control input-lg" name="password" ng-model="credentials.password" placeholder="Password">
+		</div>
+		
+
+		<div class="form-group text-right">	
+			<button type="submit" class="btn btn-primary">Register</button>
+		</div>
+	</form>
+
+	<p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
+
+
+
+</div>
