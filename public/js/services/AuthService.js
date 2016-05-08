@@ -21,10 +21,24 @@ angular.module('AuthenticationService', [])
 			return true;
 		}
 
+		var register = function(credentials) {
+			return $http({
+				method: 'POST',
+				url: '/api/v1/auth/register',
+				headers: {'accept' : 'application/json'},
+				data: {
+					'name' : credentials.name,
+					'email' : credentials.email,
+					'password' : credentials.password
+				}
+			});
+		};
+
 		return {
 			login : loginFunc,
 			register : function() {},
-			logout   : logoutFunc
+			logout   : logoutFunc,
+			register : register
 
 		}
 

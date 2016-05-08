@@ -22,6 +22,7 @@
 	<script src="js/controllers/HomeCtrl.js"></script> 
 	<script src="js/controllers/LoginCtrl.js"></script>
 	<script src="js/controllers/NavCtrl.js"></script>
+	<script src="js/controllers/RegisterCtrl.js"></script>	
 	<script src="js/services/TaskService.js"></script> 
 	<script src="js/services/AuthService.js"></script> 
 	<script src="js/services/CookiesService.js"></script> 	
