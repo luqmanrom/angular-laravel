@@ -7,17 +7,20 @@ angular.module('RegisterCtrl', ['AuthenticationService'])
 
 		$scope.submitRegister = function() {
 			$scope.loading = true;
+			$scope.loading = true;
+
 			var registerPromise = Auth.register($scope.credentials);
 
 			registerPromise
 				.then(function(data) {
-					console.log('Success');
-					console.log(data);
-					return data;
+					$scope.loading = false;
+
+					// Is it possible to pass some values and show it on login page?
+					$location.path('/login');
+					
 				}, function(err) {
 					console.log(err);
 					$scope.loading = false;
-
 				});
 
 		};			
