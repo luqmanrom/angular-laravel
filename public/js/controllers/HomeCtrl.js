@@ -63,7 +63,7 @@ angular.module('HomeCtrl', [])
 		};
 
 		$scope.updateStatus = function(task) {
-			Task.updateStatus(task.id)
+			Task.updateStatus(task)
 				.success(function() {
 					task.is_done = (task.is_done == 0)? 1 : 0;
 					$scope.$apply();

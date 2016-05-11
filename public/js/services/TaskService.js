@@ -23,14 +23,13 @@ angular.module('TaskService', [])
 			destroy : function(id) {
 				return $http.delete('api/v1/tasks/' + id);
 			},
-			updateStatus: function(id) {
-				var body  = {
-					is_done : 1
-				};
-				
+			updateStatus: function(task) {
+				var body = {};
+				body['is_done'] = (task.is_done == 0)? 1 : 0;
+
 				return $http({
 					method: 'PUT',
-					url: 'api/v1/tasks/' + id,
+					url: 'api/v1/tasks/' + task.id,
 					headers: {'accept' : 'application/json'},
 					data: body
 				});				
