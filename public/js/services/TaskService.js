@@ -22,6 +22,18 @@ angular.module('TaskService', [])
 			},
 			destroy : function(id) {
 				return $http.delete('api/v1/tasks/' + id);
+			},
+			updateStatus: function(id) {
+				var body  = {
+					is_done : 1
+				};
+				
+				return $http({
+					method: 'PUT',
+					url: 'api/v1/tasks/' + id,
+					headers: {'accept' : 'application/json'},
+					data: body
+				});				
 			}
 		}
 

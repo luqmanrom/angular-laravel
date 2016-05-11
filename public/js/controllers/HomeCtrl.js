@@ -60,6 +60,14 @@ angular.module('HomeCtrl', [])
 			} else {
 				return "Undo";
 			}
-		}
+		};
+
+		$scope.updateStatus = function(task) {
+			Task.updateStatus(task.id)
+				.success(function() {
+					task.is_done = (task.is_done == 0)? 1 : 0;
+					$scope.$apply();
+				})
+		};
 
 	}]);
