@@ -30,7 +30,6 @@ angular.module('sampleApp')
 
     .config(function($httpProvider) {
 
-        // $cookies.put('dsada', 'dasdas');
         $httpProvider.interceptors.push('AuthInterceptor');
     })
 

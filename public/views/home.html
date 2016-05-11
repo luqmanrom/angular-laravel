@@ -13,6 +13,11 @@
 		</div>
 	</form>
 
+	<button type="submit" class="btn btn-primary btn-lg">Done</button>
+	<button type="submit" class="btn btn-warning btn-lg">Not Done</button>
+	<button type="submit" class="btn btn-danger btn-lg">All</button>
+
+
 	<p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
 
 	<div class="comment" ng-hide="loading" ng-repeat="task in tasks track by $index">
