@@ -53,4 +53,13 @@ angular.module('HomeCtrl', [])
 				});
 		};
 
+
+		$scope.getStatus = function(task) {
+			if (task.is_done == 0) {
+				return "Done";
+			} else {
+				return "Undo";
+			}
+		}
+
 	}]);

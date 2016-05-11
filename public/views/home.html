@@ -19,7 +19,9 @@
 		<h3>Task #{{ $index + 1 }} <small>Last updated:  {{ task.updated_at }}</small></h3>
 		<p>{{ task.title }}</p>
 
-		<p><a href="#" ng-click="deleteTask(task.id)" class="text-muted">Delete</a></p>
+		<p style="display: inline"><a href="#" ng-click="deleteTask(task.id)" class="text-muted">Delete</a></p>
+		<p style="display: inline"><a href="#" ng-click="" class="text-muted">{{ getStatus(task) }}</a></p>
+
 	</div>
 
 </div>
