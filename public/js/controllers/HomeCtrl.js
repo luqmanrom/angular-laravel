@@ -1,7 +1,6 @@
 angular.module('HomeCtrl', [])
 
 	.controller('HomeController', ['$scope', '$http', 'Task', function($scope, $http, Task) {
-		// object to hold all the data for the new comment form
 		$scope.taskData = {};
 
 		// loading variable to show the spinning loading icon
@@ -13,7 +12,6 @@ angular.module('HomeCtrl', [])
 				$scope.tasks = data.data;
 				$scope.loading = false;
 			});
-
 
 		// function to handle submitting the form
 		$scope.submitTask = function() {
@@ -36,7 +34,7 @@ angular.module('HomeCtrl', [])
 				});
 		};
 
-		// function to handle deleting a comment
+		// function to handle deleting a task
 		$scope.deleteTask = function(id) {
 			$scope.loading = true; 
 
@@ -54,6 +52,7 @@ angular.module('HomeCtrl', [])
 		};
 
 
+		// function to get the status of the task
 		$scope.getStatus = function(task) {
 			if (task.is_done == 0) {
 				return "Done";
@@ -62,12 +61,21 @@ angular.module('HomeCtrl', [])
 			}
 		};
 
+		// function to update the status of the task
 		$scope.updateStatus = function(task) {
 			Task.updateStatus(task)
 				.success(function() {
 					task.is_done = (task.is_done == 0)? 1 : 0;
 					$scope.$apply();
 				})
+		};
+
+		var status = 'done';
+
+		$scope.statusFilter = (status === 'done')? { is_done: 1} : {is_done : 0};		
+
+		$scope.filterStatus = function(status) {
+			
 		};
 
 	}]);

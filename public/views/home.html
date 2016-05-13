@@ -20,7 +20,7 @@
 
 	<p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
 
-	<div class="comment" ng-hide="loading" ng-repeat="task in tasks track by $index">
+	<div class="comment" ng-hide="loading" ng-repeat="task in tasks | filter:statusFilter track by $index">
 		<h3>Task #{{ $index + 1 }} <small>Last updated:  {{ task.updated_at }}</small></h3>
 		<p>{{ task.title }}</p>
 
