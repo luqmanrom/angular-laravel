@@ -70,12 +70,12 @@ angular.module('HomeCtrl', [])
 				})
 		};
 
-		var status = 'done';
-
-		$scope.statusFilter = (status === 'done')? { is_done: 1} : {is_done : 0};		
-
 		$scope.filterStatus = function(status) {
-			
+
+			if (status === 'all') {
+				return true;
+			}
+			$scope.statusFilter = (status === 'done')? { is_done: 1} :(status === 'incomplete')? {is_done : 0} : true;
 		};
 
 	}]);

@@ -13,9 +13,9 @@
 		</div>
 	</form>
 
-	<button type="submit" class="btn btn-success btn-lg">Done</button>
-	<button type="submit" class="btn btn-warning btn-lg">Not Done</button>
-	<button type="submit" class="btn btn-danger btn-lg">All</button>
+	<button type="submit" class="btn btn-success btn-lg" ng-click="filterStatus('done')">Done</button>
+	<button type="submit" class="btn btn-warning btn-lg" ng-click="filterStatus('incomplete')">Not Done</button>
+	<button type="submit" class="btn btn-danger btn-lg" ng-click="filterStatus('all')">All</button>
 
 
 	<p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
