@@ -70,12 +70,29 @@ angular.module('HomeCtrl', [])
 				})
 		};
 
-		$scope.filterStatus = function(status) {
 
-			if (status === 'all') {
+		$scope.statusFilter = function(task) {
+			if (task.is_done == 0) {
 				return true;
+			} else if (task.is_done == 1) {
+				return false;
+			} else {
+				return true;;
 			}
-			$scope.statusFilter = (status === 'done')? { is_done: 1} :(status === 'incomplete')? {is_done : 0} : true;
 		};
+
+		$scope.filterStatus = function(status) {
+			
+			if (status == 'incomplete') {
+				$scope.filterObj.is_done = 0;
+			} else if (status == 'all') {
+				$scope.filterObj.is_done = "!!";
+			} else if (status == 'done') {
+				$scope.filterObj.is_done = 1;
+
+			}
+		};
+
+		$scope.filterObj = { is_done: 1};
 
 	}]);
