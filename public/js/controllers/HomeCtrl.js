@@ -1,8 +1,7 @@
-angular.module('HomeCtrl', [])
-
-	.controller('HomeController', ['$scope', '$http', 'Task', function($scope, $http, Task) {
+var app = angular.module('HomeCtrl', []);
+app.controller('HomeController', ['$scope', '$http', 'Task', function($scope, $http, Task) {
 		$scope.taskData = {};
-
+                console.log('Here');
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
 		
@@ -93,6 +92,6 @@ angular.module('HomeCtrl', [])
 			}
 		};
 
-		$scope.filterObj = { is_done: 1};
+		$scope.filterObj = { is_done: "!!"};
 
 	}]);
