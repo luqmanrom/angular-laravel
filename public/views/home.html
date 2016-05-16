@@ -20,11 +20,12 @@
 
 	<p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
 
-	<div class="comment" style="position:relative" ng-hide="loading" ng-repeat="task in tasks | filter:({is_done:filterObj.is_done}) track by $index">
+	<div class="comment" style="position:relative;" ng-hide="loading" ng-repeat="task in tasks | filter:({is_done:filterObj.is_done}) track by $index">
 		<h3>Task #{{ $index + 1 }} <small>Last updated:  {{ task.updated_at }}</small></h3>
 		<p>{{ task.title }}</p>
 		<span class="fa fa-times fa-2x" ng-click="deleteTask(task.id)" style="position:absolute; top: 0; right: 0"></span>
-		<p style="display: inline"><a href="#" ng-click="updateStatus(task)" class="text-muted">{{ getStatus(task) }}</a></p>
+
+		<button style="display: inline" ng-class="(task.is_done == 0)? 'btn-success' : 'btn-warning'" class="btn btn-sm"><a href="#" ng-click="updateStatus(task)" class="text-muted">{{ getStatus(task) }}</a></button>
 
 	</div>
 
