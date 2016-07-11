@@ -11,6 +11,9 @@
 |
  */
 
+Route::options('{all}', 'HomeController@options')->where('all', '.*');
+
+
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
